@@ -38,10 +38,12 @@ spec:
         tier: database
     spec:
       containers:
-        - image: mysql:5.7 #image from docker-hub
+        - image: mysql:latest
+          #image from docker-hub
           args:
             - "--ignore-db-dir=lost+found"
           name: mysql
+          imagePullPolicy: Always
           env:
             # Use secret in real usage
             - name: MYSQL_ROOT_PASSWORD
