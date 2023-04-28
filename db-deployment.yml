@@ -38,10 +38,8 @@ spec:
         tier: database
     spec:
       containers:
-        - image: mysql:latest
-          #image from docker-hub
-          args:
-            - "--ignore-db-dir=lost+found"
+        - image: mysql:8.0 #image from docker-hub
+          args: [ "--ignore-db-dir=lost+found" ]
           name: mysql
           imagePullPolicy: Always
           env:
