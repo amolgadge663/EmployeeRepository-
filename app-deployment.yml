@@ -14,13 +14,13 @@ spec:
   template:
     metadata:
       labels:
-        app: springboot-k8-mysql
+        app: springboot-k8s-mysql
     spec:
       containers:
         - name: springboot-crud-k8s #Get my image from the docker and run inside the K8s pods
           image: springboot-crud-k8s:1.0
           ports:
-            - containerPort: 8080
+            - containerPort: 8085
           env: #Setting env var
             - name: DB_HOST
               value: mysql
@@ -47,6 +47,6 @@ spec:
     app: springboot-crud-mysql
   ports:
     - protocol: "TCP"
-      port: 8080 #The port that the service is running on the cluster
-      targetPort: 8080 #The port exposed by the service
+      port: 8085 #The port that the service is running on the cluster
+      targetPort: 8085 #The port exposed by the service
   type: NodePort #Type of the service
